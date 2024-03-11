@@ -3,7 +3,7 @@ EasyJNI for Axmol Engine
 
 **Adaptation of EasyJNI for Axmol Engine. Original work by Victor Komarov.**
 
-Here's an example. Suppose we have a Java class
+Example of use. Suppose we have a Java class
 
 ```java
 class Logger {
