@@ -1,7 +1,8 @@
 /****************************************************************************
  Copyright (c) 2015 Victor Komarov
-
  https://github.com/fnz
+  
+ Adapted to Axmol Engine by danialias - 2024/03/11 (yyyy/mm/dd)
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -24,20 +25,22 @@
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 
-#include "base/ccUTF8.h"
+#include "base/UTF8.h"
 
 #define LOG_TAG "EasyJNI"
 #define LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 
+USING_NS_AX;
+
 std::unordered_map<JNIEnv*, std::vector<jobject>> EasyJNI::localRefs;
 
-jstring EasyJNI::convert(cocos2d::JniMethodInfo& t, const char* x) {
-    jstring ret = cocos2d::StringUtils::newStringUTFJNI(t.env, x ? x : "");
+jstring EasyJNI::convert(JniMethodInfo& t, const char* x) {
+    jstring ret = StringUtils::newStringUTFJNI(t.env, x ? x : "");
     localRefs[t.env].push_back(ret);
     return ret;
 }
 
-jstring EasyJNI::convert(cocos2d::JniMethodInfo& t, const std::string& x) {
+jstring EasyJNI::convert(JniMethodInfo& t, const std::string& x) {
     return convert(t, x.c_str());
 }
 
