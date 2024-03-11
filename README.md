@@ -1,7 +1,7 @@
 EasyJNI for Axmol Engine
 =======
 
-**Adaptation of EasyJNI for Axmol. Original work by Victor Komarov.**
+**Adaptation of EasyJNI for Axmol Engine. Original work by Victor Komarov.**
 
 Here's an example. Suppose we have a Java class
 
