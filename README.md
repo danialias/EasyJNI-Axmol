@@ -1,4 +1,4 @@
-EasyJNI for Axmol
+EasyJNI for Axmol Engine
 =======
 
 **Adaptation of EasyJNI for Axmol. Original work by Victor Komarov.**
