@@ -1,7 +1,7 @@
-EasyJNI
+EasyJNI for Axmol
 =======
 
-After hours of struggling with small bugs in JNI code I got tired and wrote these variadic template wrappers for cocos2d-x JniHelper to make calling Java from C++ nice and easy
+**Adaptation of EasyJNI for Axmol. Original work by Victor Komarov.**
 
 Here's an example. Suppose we have a Java class
 
@@ -42,4 +42,4 @@ EasyJNI::callStaticVoidMethod<float, std::string>("path/to/Logger", "purchase", 
 ```
 
 
-If the user tries to call Java method with unsupported argument, say CCSprite*, a compile time error will occur, providing the caller with a clear message. If a nonexsitent Java method is called, the error occurs in runtime and the description can be found in logcat output using "EasyJNI" tag. For debugging purposes one may want to add some popup messages instead of log records to EasyJNI::reportError method.
+If the user tries to call Java method with unsupported argument, say ax::Sprite*, a compile time error will occur, providing the caller with a clear message. If a nonexsitent Java method is called, the error occurs in runtime and the description can be found in logcat output using "EasyJNI" tag. For debugging purposes one may want to add some popup messages instead of log records to EasyJNI::reportError method.
