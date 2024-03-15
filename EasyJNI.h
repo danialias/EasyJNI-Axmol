@@ -80,6 +80,21 @@ public:
     }
 
     template <typename... Ts>
+    static int callStaticLongMethod(const std::string& className, const std::string& methodName, Ts... xs) {
+        jlong ret = 0;
+        JniMethodInfo t;
+        std::string signature = "(" + std::string(getJNISignature(xs...)) + ")J";
+        if (JniHelper::getStaticMethodInfo(t, className.c_str(), methodName.c_str(), signature.c_str())) {
+            ret = t.env->CallStaticLongMethod(t.classID, t.methodID, convert(t, xs)...);
+            t.env->DeleteLocalRef(t.classID);
+            deleteLocalRefs(t.env);
+        } else {
+            reportError(className, methodName, signature);
+        }
+        return ret;
+    }
+
+    template <typename... Ts>
     static float callStaticFloatMethod(const std::string& className, const std::string& methodName, Ts... xs) {
         jfloat ret = 0.0;
         JniMethodInfo t;
