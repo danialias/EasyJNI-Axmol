@@ -19,7 +19,7 @@ Then we can call it from C++ with just one line of code
 EasyJNI::callStaticVoidMethod("path/to/Logger", "purchase", float(3.14), "USD");
 ```
 
-There can be any number of arguments and the method signature is automatically inferred under the hood with template magic. Supported argument data types are: bool, char, short, int, long, float, double, char* and std::string. Make sure the arguments on the Java side have corresponding primitive types (no Boolean, Integer, etc), except for char* and std::string, corresponding Java type for them is String. 
+There can be any number of arguments and the method signature is automatically inferred under the hood with template magic. Supported argument data types are: `bool`, `char`, `short`, `int`, `long`, `float`, `double`, `char*` and `std::string`. Make sure the arguments on the Java side have corresponding primitive types (no `Boolean`, `Integer`, etc), except for `char*` and `std::string`, corresponding Java type for them is String. 
 
 
 One thing to note is that it should be obvious for the compiler to infer template types, otherwise incorrect signature might be generated and JNI won't be able to find the method you are trying to call. This can be achieved with three different approaches:
