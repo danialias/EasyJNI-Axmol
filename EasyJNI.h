@@ -132,7 +132,7 @@ public:
         std::string signature = "(" + std::string(getJNISignature(xs...)) + ")Ljava/lang/String;";
         if (JniHelper::getStaticMethodInfo(t, className.c_str(), methodName.c_str(), signature.c_str())) {
             jstring jret = (jstring)t.env->CallStaticObjectMethod(t.classID, t.methodID, convert(t, xs)...);
-            JniHelper::jstring2string(jret);
+            ret = JniHelper::jstring2string(jret);
             t.env->DeleteLocalRef(t.classID);
             t.env->DeleteLocalRef(jret);
             deleteLocalRefs(t.env);
