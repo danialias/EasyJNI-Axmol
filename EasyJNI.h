@@ -80,7 +80,7 @@ public:
     }
 
     template <typename... Ts>
-    static int callStaticLongMethod(const std::string& className, const std::string& methodName, Ts... xs) {
+    static jlong callStaticLongMethod(const std::string& className, const std::string& methodName, Ts... xs) {
         jlong ret = 0;
         JniMethodInfo t;
         std::string signature = "(" + std::string(getJNISignature(xs...)) + ")J";
