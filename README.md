@@ -3,6 +3,18 @@ EasyJNI for Axmol Engine
 
 **Adaptation of EasyJNI for Axmol Engine. Original work by Victor Komarov.**
 
+Available calls:
+
+      callStaticVoidMethod
+      callStaticBooleanMethod
+      callStaticIntMethod
+      callStaticLongMethod
+      callStaticFloatMethod
+      callStaticDoubleMethod
+      callStaticStringMethod
+
+=======
+
 Example of use. Suppose we have a Java class
 
 ```java
